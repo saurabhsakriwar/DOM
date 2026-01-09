@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Text Updater</title>
+
+    <style>
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: #ffffffcc;
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 26px;
+        }
+
+        p {
+            font-size: 17px;
+            color: #333;
+            margin-bottom: 20px;
+            min-height: 24px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid #aaa;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 8px #4a90e255;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            width: 100%;
+            background: #4a90e2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #357abd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>DOM Text Updater</h1>
+        <p id="displayText">Your text will appear here after clicking the button.</p>
+
+        <input type="text" id="userInput" placeholder="Type something…" />
+
+        <button onclick="updateText()">Update Text</button>
+    </div>
+
+    <script>
+        function updateText() {
+            const inputValue = document.getElementById("userInput").value;
+            document.getElementById("displayText").textContent = inputValue === "" 
+                ? "Please enter some text!"
+                : inputValue;
+        }
+    </script>
+</body>
+</html>
